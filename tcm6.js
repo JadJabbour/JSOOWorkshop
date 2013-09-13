@@ -1,8 +1,10 @@
 //extending Object
 Object.prototype.inherit = function(_parent){
 	var parent = function() { };
+	var constructor = this.constructor;
 	parent.prototype = typeof _parent == 'function' ? new _parent() : _parent;
-	return new parent();
+	this.prototype = new parent();
+	this.prototype.constructor = constructor;
 };
 
 Object.prototype.base = function(){
@@ -26,33 +28,34 @@ A.prototype = {
 
 //object constructor B (inherits A)
 var B = function(input){
+	this.inherit(A);
 	this.baseConstructor(A, input);
 	this.b = typeof input ==  'undefined' ? null : input.b || null;
 };
 
-B.prototype = Object.inherit(A);
+//B.inherit(A);
 B.prototype.doSomething = function(){
 	console.log("there, i did[from B]!" + this.a + "-" + this.b);
 };
 
 //object constructor C (inherits B)
 var C = function(input){
+	this.inherit(B);
 	this.baseConstructor(B, input);
 	this.c = typeof input ==  'undefined' ? null : input.c || null;
 };
 
-C.prototype = Object.inherit(B);
 C.prototype.doSomething = function(){
 	console.log("there, i did[from C]!" + this.a + "-" + this.b + "-" + this.c);
 };
 
 //object constructor D (inherits C)
 var D = function(input){
-	this.baseConstructor(C, input);
+	this.inherit(C);
+	this.baseConstructor(C, input)
 	this.d = typeof input ==  'undefined' ? null : input.d || null;
 };
 
-D.prototype = Object.inherit(C);
 D.prototype.doSomethingElse = function(){
 	console.log("there, i did somthing else[from D]!" + this.a + "-" + this.b + "-" + this.c + "-" + this.d);
 };

@@ -24,9 +24,7 @@ function tcm3_main(){
 	//var person = new Person(1, "person", 26, "carpenter") || "Person is undefined";
 	//this will not
 	var jad = new People.Person(1, "jad", 26, "developer");
-
-	console.log(jad);
-
+	jad.print();
 	jad.changeName("jad2");
-	console.log(jad);
+	jad.print();
 }

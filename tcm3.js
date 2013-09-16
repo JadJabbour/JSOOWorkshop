@@ -21,9 +21,9 @@ People.Person.prototype.changeName = function(value){
 //main
 function tcm3_main(){
 	//this will throw an error
-	//var person = new Person(1, "person", 26, "carpenter") || "Person is undefined";
+	//var person = new Person(1, "person", 26, "carpenter");
 	//this will not
-	var jad = new People.Person(1, "jad", 26, "developer");
+	jad = new People.Person(1, "jad", 26, "developer");
 	jad.print();
 	jad.changeName("jad2");
 	jad.print();

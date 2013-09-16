@@ -107,7 +107,7 @@ function tcm4_main(){
 
 	console.log("option 3");
 	childObject3 = {};
-	inherit_3(childObject3, object1);
+	inherit_3(childObject3, object2);
 	console.log(childObject3);
 	console.log(childObject3.hasOwnProperty("a"));
 	console.log("------------------------------");
@@ -126,7 +126,7 @@ function tcm4_main(){
 
 	console.log("option 6");
 	childObject6 = {};
-	inherit_6(childObject5, object1);
+	inherit_6(childObject5, object2);
 	console.log(childObject6);
 	console.log(childObject6.hasOwnProperty("a"));
 	console.log("------------------------------");
